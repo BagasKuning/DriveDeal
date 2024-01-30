@@ -1,5 +1,5 @@
 "use client";
-import { useState, Fragment } from "react";
+import React, { useState, Fragment } from "react";
 import { SearchManufacturerProps } from "@/types";
 import { Combobox, Transition } from "@headlessui/react";
 import { manufacturers } from "@/constants";
@@ -8,7 +8,7 @@ import Image from "next/image";
 function SearchMenuFacturer({
   selected,
   setSelected,
-}: SearchManufacturerProps) {
+}: { selected: string; setSelected: React.Dispatch<React.SetStateAction<string>>}) {
   const [query, setQuery] = useState("");
 
   const filteredManufacturers =

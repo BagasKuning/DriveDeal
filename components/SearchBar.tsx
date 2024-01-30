@@ -18,7 +18,7 @@ const SearchButton = ({otherClasses}: { otherClasses: string}) => {
   )
 }
 
-function SearchBar({setManufacturer, setModel}) {
+function SearchBar({setManufacturer, setModel}: any) {
     const [searchManufacturer, setSearchManufacturer] = useState("")
     const [searchModel, setSearchModel] = useState("")
     const router = useRouter()
@@ -31,7 +31,7 @@ function SearchBar({setManufacturer, setModel}) {
       }
 
       setModel(searchModel)
-      setManufacturer(searchManufacturers)
+      setManufacturer(searchManufacturer)
     }
 
 
