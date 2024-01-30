@@ -48,8 +48,6 @@ function SearchBar() {
         searchParams.delete("manufacturer")
       }
 
-      console.log("window pathname:", window.location.pathname)
-      console.log("search params:", searchParams)
       const newPathName = `${window.location.pathname}?${searchParams.toString()}`
 
       router.push(newPathName)
