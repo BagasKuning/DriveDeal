@@ -1,4 +1,4 @@
-import { Hero, CustomFilter, SearchBar, CarCard } from '@/components'
+import { Hero, CustomFilter, SearchBar, CarCard, ShowMore } from '@/components'
 import { fuels, yearsOfProduction } from '@/constants';
 import { fetchCars } from '@/utils'
 import Image from 'next/image'
@@ -43,6 +43,11 @@ export default async function Home({searchParams}) {
                   ))
                 }
               </div>
+
+              <ShowMore
+                pageNumber={(searchParams.limit || 10) / 10}
+                isNext={(searchParams.limit || 10) > allCars.length}
+              />
             </section>
           ) : (
             <div className='home__error-container'>
