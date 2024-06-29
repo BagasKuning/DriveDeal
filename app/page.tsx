@@ -3,8 +3,15 @@ import { fuels, yearsOfProduction } from '@/constants';
 import { fetchCars } from '@/utils'
 import Image from 'next/image'
 
-export default async function Home({searchParams}) {
+interface SearchParams {
+  manufacturer?: string;
+  model?: string;
+  year?: number;
+  fuel?: string;
+  limit?: number;
+}
 
+export default async function Home({ searchParams }: { searchParams: SearchParams }) {
   const allCars = await fetchCars({
     manufacturers: searchParams.manufacturer || "",
     year: searchParams.year || 2023,
@@ -12,6 +19,7 @@ export default async function Home({searchParams}) {
     limit: searchParams.limit || 10,
     model: searchParams.model || ""
   });
+
   const isDataEmpety = !Array.isArray(allCars) || allCars.length < 1  || !allCars
 
   return (
